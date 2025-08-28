@@ -1,0 +1,45 @@
+[project]
+name = "coderag"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "chardet>=5.2.0",
+    "editdistance>=0.8.1",
+    "httpx>=0.28.1",
+    "ipykernel>=6.29.5",
+    "ipywidgets>=8.1.6",
+    "langchain>=0.3.23",
+    "langchain-community>=0.3.21",
+    "loguru>=0.7.3",
+    "more-itertools>=10.6.0",
+    "nltk>=3.9.1",
+    "numpy>=2.2.4",
+    "openai>=1.72.0",
+    "peft>=0.15.2",
+    "pydantic>=2.11.3",
+    "pydantic-settings[toml]>=2.8.1",
+    "rank-bm25>=0.2.2",
+    "scikit-learn>=1.6.1",
+    "sentence-transformers>=4.1.0",
+    "tensorboard>=2.19.0",
+    "tiktoken>=0.9.0",
+    "torch>=2.6.0",
+    "tqdm>=4.67.1",
+    "transformers>=4.51.3",
+    "tree-sitter>=0.24.0",
+    "tree-sitter-python>=0.23.6",
+    "trl>=0.15.2",
+    "unsloth>=2025.4.7",
+    "vllm>=0.8.5",
+    "wandb>=0.19.11",
+]
+
+[[tool.uv.index]]
+url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
+default = true
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

@@ -1,0 +1,8 @@
+{
+    "exclude": [
+        ".vscode/",
+        "**/__pycache__/",
+        ".venv/",
+        "cache/"
+    ]
+}

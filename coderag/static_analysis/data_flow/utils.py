@@ -1,0 +1,7 @@
+# CONSTANT for settings
+
+MAX_HOP = None
+ONLY_DEF = False
+
+ENABLE_DOCSTRING = True
+LAST_K_LINES = 1
