@@ -1,21 +1,90 @@
 # CodeRAG
-Source code for EMNLP 2025 paper "CodeRAG: Finding Relevant and Necessary Knowledge for Retrieval-Augmented Repository-Level Code Completion"
-## set up environment
-- install uv from https://docs.astral.sh/uv/
-- run
+
+Source code for the **EMNLP 2025** paper:  
+**"CodeRAG: Finding Relevant and Necessary Knowledge for Retrieval-Augmented Repository-Level Code Completion"**
+
+---
+
+## 📦 Environment Setup
+
+1. **Install [uv](https://docs.astral.sh/uv/)**
+2. **Synchronize dependencies**
+   ```bash
+   uv sync
+   ```
+3. **Activate the virtual environment**
+   ```bash
+   source .venv/bin/activate
+   ```
+
+---
+
+## 🚀 Usage
+
+Before running scripts, edit the configuration file:
+
 ```bash
-uv sync
+config/config.toml
 ```
-- then activate virtural python environment
+
+Then execute the Python scripts **sequentially**:
+
+### 1. Build Query
 ```bash
-source .venv/bin/activate
+python scripts/build_query.py
 ```
-## run scripts
-edit config/config.toml then use python run py files sequencely. e.g. python scripts/build_query.py
-- scripts/build_query.py
-- scripts/retrieve.py
-- scripts/rerank.py
-- scripts/build_prompt.py
-- script/inference.py
-    - you can use your own code to do this step. take an array[string] json then return an array[string] json
-- script/evaluation.py
+- Generates query strings from the benchmark dataset.
+
+### 2. Retrieve Relevant Code Blocks
+```bash
+python scripts/retrieve.py
+```
+- Retrieves top-k relevant code blocks using the configured retriever.
+
+### 3. Rerank Retrieved Code Blocks
+```bash
+python scripts/rerank.py
+```
+- Reranks retrieved code blocks based on their estimated importance.
+
+### 4. Build Prompts for Generator
+```bash
+python scripts/build_prompt.py
+```
+- Constructs prompts from retrieved code blocks for the code completion generator.
+
+### 5. Run Inference
+```bash
+python scripts/inference.py
+```
+- Feeds prompts to the generator model.
+- You can replace this step with your own inference code.  
+  **Input:** JSON file containing an array of strings  
+  **Output:** JSON file containing an array of generated completions.
+
+### 6. Evaluate Results
+```bash
+python scripts/evaluation.py
+```
+- Evaluates code completion performance using inference results.
+
+---
+
+## 📄 Citation
+
+If you find this work helpful, please consider citing:
+
+```bibtex
+@inproceedings{coderag2025,
+  title={CodeRAG: Finding Relevant and Necessary Knowledge for Retrieval-Augmented Repository-Level Code Completion},
+  author={Your Name and Others},
+  booktitle={Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+  year={2025}
+}
+```
+
+---
+
+## 📧 Contact
+
+For questions, please open an issue or contact **[your_email@example.com]**.
