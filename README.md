@@ -77,7 +77,7 @@ If you find this work helpful, please consider citing:
 ```bibtex
 @inproceedings{coderag2025,
   title={CodeRAG: Finding Relevant and Necessary Knowledge for Retrieval-Augmented Repository-Level Code Completion},
-  author={Your Name and Others},
+  author={Sheng Zhang, Yifan Ding, Shuquan Lian, Shun Song, Hui Li},
   booktitle={Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
   year={2025}
 }
