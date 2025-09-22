@@ -1,7 +1,7 @@
 # CodeRAG
 
 Source code for the **EMNLP 2025** paper:  
-**"CodeRAG: Finding Relevant and Necessary Knowledge for Retrieval-Augmented Repository-Level Code Completion"**
+**"CodeRAG: Finding Relevant and Necessary Knowledge for Retrieval-Augmented Repository-Level Code Completion"** [[arXiv]](https://arxiv.org/abs/2509.16112)
 
 ---
 
