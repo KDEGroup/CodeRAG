@@ -2,7 +2,6 @@ from pathlib import Path
 from typing import List, Optional, Sequence
 
 from loguru import logger
-from coderag.static_analysis.parse_repo import Element
 from coderag.retrieve.common import BaseElementIndexer, get_key_from_element
 import torch
 import torch.nn.functional as F
