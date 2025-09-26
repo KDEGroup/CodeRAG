@@ -1,18 +1,17 @@
 # CodeRAG
 
-Source code for the **EMNLP 2025** paper:  
-**"CodeRAG: Finding Relevant and Necessary Knowledge for Retrieval-Augmented Repository-Level Code Completion"** [[arXiv]](https://arxiv.org/abs/2509.16112)
+Source code for our **EMNLP 2025** paper: **"CodeRAG: Finding Relevant and Necessary Knowledge for Retrieval-Augmented Repository-Level Code Completion"** [[arXiv]](https://arxiv.org/abs/2509.16112).
 
 ---
 
 ## 📦 Environment Setup
 
-1. **Install [uv](https://docs.astral.sh/uv/)**
-2. **Synchronize dependencies**
+### 1. **Install [uv](https://docs.astral.sh/uv/)**
+### 2. **Synchronize dependencies**
    ```bash
    uv sync
    ```
-3. **Activate the virtual environment**
+### 3. **Activate the virtual environment**
    ```bash
    source .venv/bin/activate
    ```
@@ -72,7 +71,7 @@ python scripts/evaluation.py
 
 ## 📄 Citation
 
-If you find this work helpful, please consider citing:
+If you find this work helpful, please consider citing our paper:
 
 ```bibtex
 @inproceedings{coderag2025,
@@ -87,4 +86,4 @@ If you find this work helpful, please consider citing:
 
 ## 📧 Contact
 
-For questions, please open an issue or contact **[your_email@example.com]**.
+For questions, please open an issue or contact **dingyf@stu.xmu.edu.cn**.
