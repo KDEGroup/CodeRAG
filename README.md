@@ -20,7 +20,7 @@ Source code for our **EMNLP 2025** paper: **"CodeRAG: Finding Relevant and Neces
 
 ## 🚀 Usage
 
-Before running scripts, edit the configuration file:
+Before running scripts, download benchmarks (recceval and cceval) and edit the configuration file:
 
 ```bash
 config/config.toml
