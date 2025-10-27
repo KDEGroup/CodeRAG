@@ -5,7 +5,7 @@ log_level = "DEBUG"
 name = "cceval"
 repos_path = "cache/benchmark/cceval/raw_data"
 meta_data_path = "cache/benchmark/cceval/python/line_completion.jsonl"
-data_indices_path = "benchmark/cceval/test_indices.json" #use full benchmark or just these indices
+# data_indices_path = "benchmark/cceval/test_indices.json" #use full benchmark or just these indices
 
 # name = "recceval"
 # repos_path = "cache/benchmark/ReccEval/Source_Code"
@@ -17,14 +17,14 @@ model_max_token_n = 2048
 logits_token_n = 5
 chunk_size = 3
 model_name_or_path = "youpathto/codet5p-220m"
-output_file = "cache/recceval/query/cost_time_100.json"
+output_file = "cache/cceval/query/full-logits-m2048-n5-c3.json"
 method = "logits"
 lask_k = 10
 
 
 [retrieve]
-use_query_file = "cache/recceval/query/recceval-lask_1.json"
-output_file = "cache/recceval/retrieve/recceval-time_cost.json"
+use_query_file = "cache/cceval/query/full-logits-m2048-n5-c3.json"
+output_file = "cache/cceval/retrieve/full-logits-m2048-n5-c3-sparse-tfidf-5-5-dense-codet5p110m-5-5-dataflow-max2000.json"
 
 [retrieve.sparse]
 method = "tfidf"
@@ -40,16 +40,16 @@ func_topk = 5
 
 [retrieve.dataflow]
 enable = true
-graph_use_cache = true
+graph_use_cache = false
 graph_cache_dir = "cache/recceval/dataflow/graphs"
 
 [rerank]
-use_retrieve_file = "cache/cceval/retrieve/cceval-codet5p220m-token_num5-top_k1_chunk_size3-sparse-5-5-dense-5-5-dataflow-max2000.json"
-retrieve_data_indices_path = "benchmark/cceval/test_indices.json" #use full benchmark or just these indices
+use_retrieve_file = "cache/cceval/retrieve/full-logits-m2048-n5-c3-sparse-tfidf-5-5-dense-codet5p110m-5-5-dataflow-max2000.json"
+# retrieve_data_indices_path = "benchmark/cceval/test_indices.json" #use full benchmark or just these indices
 use_dense = true
 use_sparse = true
 use_dataflow = true
-output_file = "cache/cceval/rerank/test-cceval-codet5p220m-token_num5-top_k1_chunk_size3-sparse-5-5-dense-5-5-dataflow-max2000-qwen3-0.6b-good-nothink-eval-loss-0.0708.json"
+output_file = "cache/cceval/rerank/full-logits-m2048-n5-c3-sparse-tfidf-5-5-dense-codet5p110m-5-5-dataflow-max2000-rerank-Qwen3-8B-heap-5-top10.json"
 enable = true
 think = false
 method = "local"
@@ -58,7 +58,7 @@ bubble_window = 6
 bubble_step = 3
 heap_child_n = 5
 rerank_api_url = "http://10.24.24.24:8000/v1" # openai like api
-rerank_model = "cache/cceval/rerank/sft-good-no-think-merged/Qwen3-0.6B-sft-eval-loss-0.0708"
+rerank_model = "youpathto/Qwen3-8B"
 rerank_api_key = "sk-xxx"
 top_k = 10
 
@@ -83,24 +83,24 @@ output_file = "some path"
 
 [build_prompt]
 use_retrieval = true
-use_retrieve_file = "cache/cceval/retrieve/cceval-codet5p220m-token_num5-top_k1_chunk_size3-sparse-5-5-dense-5-5-dataflow-max2000.json"
-retrieve_data_indices_path = "benchmark/cceval/test_indices.json"
-use_rerank_file = "cache/cceval/rerank/test-cceval-codet5p220m-token_num5-top_k1_chunk_size3-sparse-5-5-dense-5-5-dataflow-max2000-qwen3-0.6b-good-nothink-eval-loss-0.0708.json"
-output_file = "cache/cceval/prompt/test-cceval-codet5p220m-token_num5-top_k1_chunk_size3-sparse-5-5-dense-5-5-dataflow-max2000-qwen3-0.6b-good-nothink-eval-loss-0.0708-starcoder2.json"
+use_retrieve_file = "cache/cceval/retrieve/full-logits-m2048-n5-c3-sparse-tfidf-5-5-dense-codet5p110m-5-5-dataflow-max2000.json"
+# retrieve_data_indices_path = "benchmark/cceval/test_indices.json"
+use_rerank_file = "cache/cceval/retrieve/cceval-codet5p220m-token_num5-top_k1_chunk_size3-sparse-5-5-dense-5-5-dataflow-max2000.json"
+output_file = "cache/cceval/prompt/cceval-codet5p220m-token_num5-top_k1_chunk_size3-sparse-5-5-dense-5-5-dataflow-max2000-Qwen2.5-Coder.json"
 max_token_n = 2000
 use_rerank_k = 10
-tokenizer_path_or_name = "youpathto/starcoder2-3b"
+tokenizer_path_or_name = "youpathto/Qwen2.5-Coder-7B"
 
 
 [inference]
-use_prompt_file = "cache/cceval/prompt/test-cceval-codet5p220m-token_num5-top_k1_chunk_size3-sparse-5-5-dense-5-5-dataflow-max2000-qwen3-0.6b-good-nothink-eval-loss-0.0708-starcoder2.json"
-output_file = "cache/cceval/inference/test-cceval-codet5p220m-token_num5-top_k1_chunk_size3-sparse-5-5-dense-5-5-dataflow-max2000-qwen3-0.6b-good-nothink-eval-loss-0.0708-starcoder2-3b.json"
+use_prompt_file = "cache/cceval/prompt/cceval-codet5p220m-token_num5-top_k1_chunk_size3-sparse-5-5-dense-5-5-dataflow-max2000-Qwen2.5-Coder.json"
+output_file = "cache/cceval/inference/cceval-codet5p220m-token_num5-top_k1_chunk_size3-sparse-5-5-dense-5-5-dataflow-max2000-Qwen2.5-Coder-7B.json"
 max_tokens = 48
 api_url = "http://10.24.24.24:8000/v1"
 api_key = "sk-xxx"
-model = "starcoder2-3b"
+model = "Qwen2.5-Coder-7B"
 
 [evaluation]
 # inference_data_indices_path = "benchmark/cceval/test_indices.json" #indices or None
-use_inference_file = "cache/cceval/inference/test-cceval-codet5p220m-token_num5-top_k1_chunk_size3-sparse-5-5-dense-5-5-dataflow-max2000-qwen3-0.6b-good-nothink-eval-loss-0.0708-santacoder.json"
-output_file = "cache/cceval/evaluation/test-cceval-codet5p220m-token_num5-top_k1_chunk_size3-sparse-5-5-dense-5-5-dataflow-max2000-qwen3-0.6b-good-nothink-eval-loss-0.0708-santacoder.json"
+use_inference_file = "cache/cceval/inference/cceval-codet5p220m-token_num5-top_k1_chunk_size3-sparse-5-5-dense-5-5-dataflow-max2000-Qwen2.5-Coder-7B.json"
+output_file = "cache/cceval/evaluation/cceval-codet5p220m-token_num5-top_k1_chunk_size3-sparse-5-5-dense-5-5-dataflow-max2000-Qwen2.5-Coder-7B.json"
