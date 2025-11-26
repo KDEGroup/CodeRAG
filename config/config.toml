@@ -63,7 +63,7 @@ rerank_api_key = "sk-xxx"
 top_k = 10
 
 [rerank.distill]
-use_retrieve_file = "cache/cceval/retrieve/cceval-codet5p220m-token_num5-top_k1_chunk_size3-sparse-5-5-dense-5-5-dataflow-max2000.json"
+use_retrieve_file = "cache/cceval/retrieve/full-logits-m2048-n5-c3-sparse-tfidf-5-5-dense-codet5p110m-5-5-dataflow-max2000.json"
 retrieve_data_indices_path = "benchmark/cceval/test_indices.json" #use full benchmark or just these indices
 train_data_output_file = "cache/cceval/rerank/distill/good_no_think_select_training_data.json"
 choice_num_list = [2,3,4,5,6,7]
@@ -85,7 +85,7 @@ output_file = "some path"
 use_retrieval = true
 use_retrieve_file = "cache/cceval/retrieve/full-logits-m2048-n5-c3-sparse-tfidf-5-5-dense-codet5p110m-5-5-dataflow-max2000.json"
 # retrieve_data_indices_path = "benchmark/cceval/test_indices.json"
-use_rerank_file = "cache/cceval/retrieve/cceval-codet5p220m-token_num5-top_k1_chunk_size3-sparse-5-5-dense-5-5-dataflow-max2000.json"
+use_rerank_file = "cache/cceval/rerank/full-logits-m2048-n5-c3-sparse-tfidf-5-5-dense-codet5p110m-5-5-dataflow-max2000-rerank-Qwen3-8B-heap-5-top10.json"
 output_file = "cache/cceval/prompt/cceval-codet5p220m-token_num5-top_k1_chunk_size3-sparse-5-5-dense-5-5-dataflow-max2000-Qwen2.5-Coder.json"
 max_token_n = 2000
 use_rerank_k = 10
