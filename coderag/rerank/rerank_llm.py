@@ -43,7 +43,6 @@ class RerankerByPrompt:
                 query=last_holder.code_snippet,
                 candidates=[it.code_snippet for it in need_sorted]
             )
-            rank_block_result = [candidate_holder[idx] for idx, content in rank_result]
+            rank_block_result = [need_sorted[idx] for idx, content in rank_result]
             sorter.submit_sorted(rank_block_result)
         return sorter.get_result()[:topK]
-    
