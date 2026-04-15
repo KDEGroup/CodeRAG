@@ -55,6 +55,9 @@ def main():
     # Reranking process
     logger.info("Reranking...")
 
+    if settings.rerank.method == "api":
+        raise NotImplementedError("API reranking method is not supported")
+    
     if settings.rerank.method == "api" or not settings.rerank.enable:
         openai_client = get_client(
             api_key=settings.rerank.rerank_api_key,
